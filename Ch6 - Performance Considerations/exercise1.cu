@@ -1,3 +1,5 @@
+// Write a matrix multiplication kernel function
+
 #define TILE_WIDTH 32
 
 // __global__ for kernel called from CPU
