@@ -1,0 +1,5 @@
+In Exercise 1, assume that we privatize the global memory variable into shared memory variables in the kernel and that the shared memory access latency is 1 ns. All original global memory atomic operations are converted into shared memory atomic operation. For simplicity, assume that the additional global memory atomic operations for accumulating privatized variable into the global variable adds 10% to the total execution time. Assume that a kernel performs five floating-point operations per atomic operation. What is the maximum floating-point throughput of the kernel execution as limited by the throughput of the atomic operations?
+
+First lets calculate the throughput of the atomic operations. 1 op / 1 ns = 10^9 Ops/sec.
+Since the global memory atomic operations for accumulating privatized variables will add 10% to total execution time, our new throughput will be 10^9 x 0.9 = 9^8 Ops/sec.
+To find the maximum floating-point throughput for this kernel if limited by the throughput of the atomic operations, it would be 5 FLOPs/Op x 9^8 Ops/sec = 4.5 GFLOPS.
